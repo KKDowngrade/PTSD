@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cicrf2avvsk65"]
+
+[ext_resource type="Script" uid="uid://cibmrolcrlqha" path="res://script/powe_up_screen.gd" id="1_4jk1w"]
+[ext_resource type="FontFile" uid="uid://bfvmt4akmv3hv" path="res://assets/PressStart2P-Regular.ttf" id="1_hjy4r"]
+
+[sub_resource type="Theme" id="Theme_mswub"]
+default_font = ExtResource("1_hjy4r")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hybxs"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="PoweUpScreen" type="Control" unique_id=1197140233]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_mswub")
+script = ExtResource("1_4jk1w")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=246396089]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = -40.5
+offset_right = 80.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1601897264]
+layout_mode = 2
+
+[node name="PowerUpText" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=2044149182]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hybxs")
+bbcode_enabled = true
+text = "[wave]Chose one Power-Up"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=120486040]
+layout_mode = 2
+
+[node name="SizeUpButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=426879897]
+layout_mode = 2
+text = "Increase racket
+size in 10%"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton" to="." method="_on_size_up_button_pressed"]

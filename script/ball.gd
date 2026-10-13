@@ -14,21 +14,30 @@ func _physics_process(delta: float) -> void:
 		ball_touch.play()
 
 
-
-
-
 func reset() -> void:
 	global_position = Vector2(558, 311)
 	speed = 0
 	await get_tree().create_timer(0.6).timeout
 	speed = 400
 	
-	
-
 
 func _on_main_game_waited() -> void:
 	speed = 0
 
 
 func _on_main_game_started() -> void:
+	speed = 400
+
+
+func _on_main_game_over() -> void:
+	global_position = Vector2(558, 311)
+	speed = 0
+
+
+func _on_main_pointed() -> void:
+	global_position = Vector2(558, 311)
+	speed = 0
+
+
+func _on_powe_up_screen_chosed() -> void:
 	speed = 400

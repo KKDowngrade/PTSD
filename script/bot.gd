@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 258
+@export var speed: float = 255
 
 @onready var ball: CharacterBody2D = $"../Ball"
 

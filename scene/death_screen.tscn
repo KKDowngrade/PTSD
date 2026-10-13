@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://h35rlpgfnuki"]
+
+[ext_resource type="FontFile" uid="uid://bfvmt4akmv3hv" path="res://assets/PressStart2P-Regular.ttf" id="1_hvnne"]
+[ext_resource type="Script" uid="uid://d35loscs5rglv" path="res://script/death_screen.gd" id="2_axunc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i241j"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_0yc80"]
+Button/font_sizes/font_size = 10
+Button/fonts/font = ExtResource("1_hvnne")
+RichTextLabel/font_sizes/normal_font_size = 12
+RichTextLabel/fonts/normal_font = ExtResource("1_hvnne")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_i241j")
+
+[sub_resource type="Theme" id="Theme_wkpy8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxkqy"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.21568628, 0.21568628, 0.21568628, 0.7254902)
+
+[node name="Death_Screen" type="Control" unique_id=1223509404]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0yc80")
+script = ExtResource("2_axunc")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1330004040]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -38.0
+offset_right = 84.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wkpy8")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lxkqy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1178671542]
+layout_mode = 2
+
+[node name="DeadScren" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=635765868]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=red][wave]Você Morreu"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1609423281]
+layout_mode = 2
+text = "Tentar de novo"
+
+[node name="MainMenuButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1097820405]
+layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
