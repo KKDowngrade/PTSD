@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cw6cg8qlslskm" path="res://script/experience.gd" id="10_hybxs"]
 [ext_resource type="AudioStream" uid="uid://dxjphdse2pian" path="res://assets/countdown_final.mp3" id="10_k65ib"]
 [ext_resource type="Script" uid="uid://cutjum20yxaya" path="res://script/life.gd" id="10_v2gmf"]
+[ext_resource type="FontFile" uid="uid://bfvmt4akmv3hv" path="res://assets/PressStart2P-Regular.ttf" id="11_v2gmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yc80"]
 
@@ -22,6 +23,9 @@ size = Vector2(1172, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxkqy"]
 size = Vector2(22, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arqo0"]
+size = Vector2(22.666668, 51.333344)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i241j"]
 size = Vector2(78, 670)
@@ -108,6 +112,15 @@ grow_vertical = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Racket" unique_id=1439667360]
 position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_lxkqy")
+
+[node name="Area2D" type="Area2D" parent="Racket" unique_id=2006539086]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Racket/Area2D" unique_id=1106625829]
+position = Vector2(0, -20.5)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_arqo0")
 
 [node name="Bot" type="CharacterBody2D" parent="." unique_id=555686683]
 position = Vector2(1080, 338)
@@ -205,6 +218,23 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_smf0o")
 show_percentage = false
 script = ExtResource("10_v2gmf")
 
+[node name="LevelLabel" type="RichTextLabel" parent="HUD" unique_id=798708879]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 31.0
+offset_right = 20.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("11_v2gmf")
+bbcode_enabled = true
+text = "BUG"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="FailSound" type="AudioStreamPlayer2D" parent="." unique_id=400957308]
 stream = ExtResource("7_p1hux")
 
@@ -222,11 +252,16 @@ stream = ExtResource("10_k65ib")
 [connection signal="game_started" from="." to="Ball" method="_on_main_game_started"]
 [connection signal="game_started" from="." to="Racket" method="_on_main_game_started"]
 [connection signal="game_waited" from="." to="Ball" method="_on_main_game_waited"]
+[connection signal="level_up" from="." to="Ball" method="_on_main_level_up"]
+[connection signal="level_up" from="." to="Bot" method="_on_main_level_up"]
 [connection signal="pointed" from="." to="Ball" method="_on_main_pointed"]
+[connection signal="body_entered" from="Racket/Area2D" to="Ball" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="GoalLeft" to="." method="_on_goal_left_body_entered"]
 [connection signal="body_entered" from="GoalRight" to="." method="_on_goal_right_body_entered"]
 [connection signal="ball_speed_up" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_ball_speed_up"]
 [connection signal="chosed" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_chosed"]
 [connection signal="chosed" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_chosed"]
+[connection signal="racket_speed_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_racket_speed_up"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_size_up"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_size_up"]
+[connection signal="super_ball" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_super_ball"]

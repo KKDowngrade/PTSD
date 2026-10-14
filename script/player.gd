@@ -39,3 +39,8 @@ func _on_main_game_over() -> void:
 
 func _on_powe_up_screen_size_up() -> void:
 	grow_up()
+
+
+func _on_powe_up_screen_racket_speed_up() -> void:
+	speed = speed * 1.1
+	print(speed)

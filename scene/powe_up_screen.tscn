@@ -12,6 +12,10 @@ content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 bg_color = Color(0, 0, 0, 0.3647059)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hybxs"]
 content_margin_left = 10.0
@@ -66,10 +70,16 @@ layout_mode = 2
 text = "+10% racket
 size"
 
-[node name="BallSpeedUpBotton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1465705562]
+[node name="RacketSpeedUpButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=452625315]
 layout_mode = 2
-text = "+10% ball
+text = "+10% racket
 speed"
 
+[node name="SuperBallButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=2024311866]
+layout_mode = 2
+text = "+10 ball
+bounce speed"
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton" to="." method="_on_size_up_button_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BallSpeedUpBotton" to="." method="_on_ball_speed_up_botton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton" to="." method="_on_racket_speed_up_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton" to="." method="_on_super_ball_button_pressed"]
