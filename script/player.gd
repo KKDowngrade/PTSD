@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 var speed = 400
 var is_game_started:bool = false
+var is_game_paused: bool = false
 var alive:bool = true
 var normal_height = 60
 var height_multiplier = 1.0
@@ -16,6 +17,9 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if alive == false:
+		return
+		
+	if is_game_paused == true:
 		return
 		
 	var v_direction: float = Input.get_axis("p1_move_up", "p1_move_down")
@@ -44,3 +48,11 @@ func _on_powe_up_screen_size_up() -> void:
 func _on_powe_up_screen_racket_speed_up() -> void:
 	speed = speed * 1.1
 	print(speed)
+
+
+func _on_main_paused() -> void:
+	is_game_paused = true
+
+
+func _on_pause_menu_despaused() -> void:
+	is_game_paused = false

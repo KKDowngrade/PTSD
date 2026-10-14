@@ -10,11 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://h35rlpgfnuki" path="res://scene/death_screen.tscn" id="7_wscrc"]
 [ext_resource type="AudioStream" uid="uid://ewabkrgg2e33" path="res://assets/Point_Sound.sfxr" id="8_of57s"]
 [ext_resource type="PackedScene" uid="uid://cicrf2avvsk65" path="res://scene/powe_up_screen.tscn" id="9_mswub"]
-[ext_resource type="AudioStream" uid="uid://bxrf202qt7smn" path="res://assets/countdown_number.mp3" id="9_tqoya"]
 [ext_resource type="Script" uid="uid://cw6cg8qlslskm" path="res://script/experience.gd" id="10_hybxs"]
-[ext_resource type="AudioStream" uid="uid://dxjphdse2pian" path="res://assets/countdown_final.mp3" id="10_k65ib"]
 [ext_resource type="Script" uid="uid://cutjum20yxaya" path="res://script/life.gd" id="10_v2gmf"]
 [ext_resource type="FontFile" uid="uid://bfvmt4akmv3hv" path="res://assets/PressStart2P-Regular.ttf" id="11_v2gmf"]
+[ext_resource type="PackedScene" uid="uid://cluylp23isb3o" path="res://scene/pause_menu.tscn" id="12_jcbur"]
+[ext_resource type="AudioStream" uid="uid://d2718437u5uan" path="res://assets/Countdown_Number.sfxr" id="15_jcbur"]
+[ext_resource type="AudioStream" uid="uid://dkau5nbvwqp7u" path="res://assets/Countdown_Final.sfxr" id="16_smf0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yc80"]
 
@@ -235,6 +236,8 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PauseMenu" parent="HUD" unique_id=264224341 instance=ExtResource("12_jcbur")]
+
 [node name="FailSound" type="AudioStreamPlayer2D" parent="." unique_id=400957308]
 stream = ExtResource("7_p1hux")
 
@@ -242,10 +245,10 @@ stream = ExtResource("7_p1hux")
 stream = ExtResource("8_of57s")
 
 [node name="CountdownNumbers" type="AudioStreamPlayer2D" parent="." unique_id=261041247]
-stream = ExtResource("9_tqoya")
+stream = ExtResource("15_jcbur")
 
 [node name="CountdownFinal" type="AudioStreamPlayer2D" parent="." unique_id=2003131060]
-stream = ExtResource("10_k65ib")
+stream = ExtResource("16_smf0o")
 
 [connection signal="game_over" from="." to="Ball" method="_on_main_game_over"]
 [connection signal="game_over" from="." to="Racket" method="_on_main_game_over"]
@@ -254,6 +257,8 @@ stream = ExtResource("10_k65ib")
 [connection signal="game_waited" from="." to="Ball" method="_on_main_game_waited"]
 [connection signal="level_up" from="." to="Ball" method="_on_main_level_up"]
 [connection signal="level_up" from="." to="Bot" method="_on_main_level_up"]
+[connection signal="paused" from="." to="Ball" method="_on_main_paused"]
+[connection signal="paused" from="." to="Racket" method="_on_main_paused"]
 [connection signal="pointed" from="." to="Ball" method="_on_main_pointed"]
 [connection signal="body_entered" from="Racket/Area2D" to="Ball" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="GoalLeft" to="." method="_on_goal_left_body_entered"]
@@ -261,7 +266,10 @@ stream = ExtResource("10_k65ib")
 [connection signal="ball_speed_up" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_ball_speed_up"]
 [connection signal="chosed" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_chosed"]
 [connection signal="chosed" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_chosed"]
+[connection signal="full_life" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_full_life"]
 [connection signal="racket_speed_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_racket_speed_up"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_size_up"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_size_up"]
 [connection signal="super_ball" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_super_ball"]
+[connection signal="despaused" from="HUD/PauseMenu" to="Ball" method="_on_pause_menu_despaused"]
+[connection signal="despaused" from="HUD/PauseMenu" to="Racket" method="_on_pause_menu_despaused"]

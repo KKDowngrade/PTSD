@@ -4,6 +4,7 @@ signal chosed
 signal ball_speed_up
 signal racket_speed_up
 signal super_ball
+signal full_life
 
 
 func _ready() -> void:
@@ -25,5 +26,11 @@ func _on_racket_speed_up_button_pressed() -> void:
 
 func _on_super_ball_button_pressed() -> void:
 	super_ball.emit()
+	chosed.emit()
+	hide()
+
+
+func _on_full_life_button_pressed() -> void:
+	full_life.emit()
 	chosed.emit()
 	hide()

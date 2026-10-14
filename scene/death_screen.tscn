@@ -72,5 +72,7 @@ text = "Tentar de novo"
 
 [node name="MainMenuButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1097820405]
 layout_mode = 2
+text = "Main Menu"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

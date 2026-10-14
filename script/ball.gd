@@ -62,3 +62,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_powe_up_screen_super_ball() -> void:
 	bounce_multiplier += 0.1
+
+
+func _on_main_paused() -> void:
+	speed = 0
+
+
+func _on_pause_menu_despaused() -> void:
+	speed = actual_speed

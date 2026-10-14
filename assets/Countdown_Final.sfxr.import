@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://dkau5nbvwqp7u"
+path="res://.godot/imported/Countdown_Final.sfxr-cb8ffb5aa224914c3d40adca93ee8331.sample"
+
+[deps]
+
+source_file="res://assets/Countdown_Final.sfxr"
+dest_files=["res://.godot/imported/Countdown_Final.sfxr-cb8ffb5aa224914c3d40adca93ee8331.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

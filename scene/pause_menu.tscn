@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cluylp23isb3o"]
+
+[ext_resource type="FontFile" uid="uid://bfvmt4akmv3hv" path="res://assets/PressStart2P-Regular.ttf" id="1_grdc7"]
+[ext_resource type="Script" uid="uid://gkah3dxxkcgq" path="res://script/pause_menu.gd" id="1_me6vf"]
+
+[sub_resource type="Theme" id="Theme_k4y6x"]
+Button/font_sizes/font_size = 10
+Button/fonts/font = ExtResource("1_grdc7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arqo0"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="PauseMenu" type="Control" unique_id=264224341]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_me6vf")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=762539950]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -57.0
+offset_right = 53.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k4y6x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=2077046729]
+layout_mode = 2
+
+[node name="PauseText" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=1028077109]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_grdc7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_arqo0")
+bbcode_enabled = true
+text = "[wave]Paused"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1534289396]
+layout_mode = 2
+text = "Continue"
+
+[node name="RestartButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1511794381]
+layout_mode = 2
+text = "Restart"
+
+[node name="MainMenuButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=815138157]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1059084718]
+layout_mode = 2
+text = "Exit game"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

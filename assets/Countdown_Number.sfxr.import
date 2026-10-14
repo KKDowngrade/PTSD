@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://d2718437u5uan"
+path="res://.godot/imported/Countdown_Number.sfxr-e8dd7f4c9290d3f8fde6f14241b25b04.sample"
+
+[deps]
+
+source_file="res://assets/Countdown_Number.sfxr"
+dest_files=["res://.godot/imported/Countdown_Number.sfxr-e8dd7f4c9290d3f8fde6f14241b25b04.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

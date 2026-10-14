@@ -80,6 +80,11 @@ layout_mode = 2
 text = "+10 ball
 bounce speed"
 
+[node name="FullLifeButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1687168965]
+layout_mode = 2
+text = "Get Full Life"
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton" to="." method="_on_size_up_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton" to="." method="_on_racket_speed_up_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton" to="." method="_on_super_ball_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton" to="." method="_on_full_life_button_pressed"]

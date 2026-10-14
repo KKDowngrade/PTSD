@@ -5,6 +5,7 @@ var experience: int = 0
 var life: int = 10
 var bot_score: int = 0
 var level: int = 1
+var is_game_started = false
 
 @onready var score_label: RichTextLabel = $HUD/ScoreLabel
 @onready var countdown_label: RichTextLabel = $HUD/CountdownLabel
@@ -17,12 +18,14 @@ var level: int = 1
 @onready var death_screen: Control = $HUD/Death_Screen
 @onready var powe_up_screen: Control = $HUD/PoweUpScreen
 @onready var level_label: RichTextLabel = $HUD/LevelLabel
+@onready var pause_menu: Control = $HUD/PauseMenu
 
 signal game_waited
 signal game_started
 signal game_over
 signal pointed
 signal level_up
+signal paused
 
 func _ready() -> void:
 	update_level()
@@ -40,6 +43,7 @@ func _ready() -> void:
 	countdown_final.play()
 	await  get_tree().create_timer(0.6).timeout
 	countdown_label.hide()
+	is_game_started = true
 	game_started.emit()
 
 func _on_powe_up_screen_chosed() -> void:
@@ -82,3 +86,13 @@ func _process(delta: float) -> void:
 	if life == 0:
 		death_screen.show()
 		game_over.emit()
+	if Input.is_action_just_pressed("pause"):
+		if is_game_started == false:
+			return
+		
+		pause_menu.show()
+		paused.emit()
+
+
+func _on_powe_up_screen_full_life() -> void:
+	life = 10
