@@ -22,7 +22,6 @@ signal pointed
 
 func _ready() -> void:
 	game_waited.emit()
-	update_score()
 	countdown_label.text = str("[color=red]3")
 	countdown_numbers.play()
 	await get_tree().create_timer(1).timeout
@@ -38,6 +37,9 @@ func _ready() -> void:
 	countdown_label.hide()
 	game_started.emit()
 
+func _on_powe_up_screen_chosed() -> void:
+	experience -= 100
+
 
 
 func _on_goal_left_body_entered(body: Node2D) -> void:
@@ -45,63 +47,30 @@ func _on_goal_left_body_entered(body: Node2D) -> void:
 	life -= 1
 	body.reset()
 	fail_sound.play()
-	update_score()
+
 
 
 func _on_goal_right_body_entered(body: Node2D) -> void:
 	
 	
 	if experience == 100:
-		experience = 0
-		powe_up_screen.show()
-		score += 1
+
 		point_sound.play()
 		pointed.emit()
-	score += 1
-	experience += 10
-	update_score()
-	point_sound.play()
-	pointed.emit()
+		powe_up_screen.show()
+
+	else:
+		score += 1
+		experience += 10
+
+		point_sound.play()
+		body.reset()
 
 
-func update_score() -> void:
-	score_label.text = str("XP: ", experience)
+
 	
 func _process(delta: float) -> void:
-	if experience == 100:
-		experience = 0
-		powe_up_screen.show()
-	if life == 10:
-		sprite_2d.set_frame(0)
-	else:
-		if life == 9:
-			sprite_2d.set_frame(1)
-		else:
-			if life == 8:
-				sprite_2d.set_frame(2)
-			else:
-				if life == 7:
-					sprite_2d.set_frame(3)
-				else:
-					if life == 6:
-						sprite_2d.set_frame(4)
-					else:
-						if life == 5:
-							sprite_2d.set_frame(5)
-						else:
-							if life == 4:
-								sprite_2d.set_frame(6)
-							else:
-								if life == 3:
-									sprite_2d.set_frame(7)
-								else:
-									if life == 2:
-										sprite_2d.set_frame(8)
-									else:
-										if life == 1:
-											sprite_2d.set_frame(9)
-										else:
-											if life == 0:
-												sprite_2d.set_frame(10)
-												death_screen.show()
-												game_over.emit()
+	if life == 0:
+		sprite_2d.set_frame(10)
+		death_screen.show()
+		game_over.emit()

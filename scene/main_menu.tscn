@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://65q56d8fsgci"]
+
+[ext_resource type="FontFile" uid="uid://bfvmt4akmv3hv" path="res://assets/PressStart2P-Regular.ttf" id="1_3er1b"]
+[ext_resource type="Script" uid="uid://b7ml5iwtnygh2" path="res://script/main_menu.gd" id="1_hxu56"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arqo0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4y6x"]
+bg_color = Color(0.851769, 0.8517689, 0.85176885, 1)
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3er1b"]
+bg_color = Color(0.22670749, 0.22670752, 0.2267074, 1)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_rxva8"]
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/fonts/font = ExtResource("1_3er1b")
+Button/styles/disabled = SubResource("StyleBoxFlat_arqo0")
+Button/styles/hover = SubResource("StyleBoxFlat_k4y6x")
+Button/styles/normal = SubResource("StyleBoxFlat_3er1b")
+
+[node name="MainMenu" type="Control" unique_id=2131308007]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hxu56")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1358289614]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1832184200]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.5
+offset_right = 280.5
+offset_bottom = 183.0
+grow_horizontal = 2
+theme_override_constants/paragraph_separation = -9
+theme_override_fonts/normal_font = ExtResource("1_3er1b")
+bbcode_enabled = true
+text = "[font_size=100]PTSD[/font_size]
+Pong Tactical Survivor Downgrade
+"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=426383923]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.5
+offset_top = -74.0
+offset_right = 154.5
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rxva8")
+theme_override_constants/separation = 50
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1707853970]
+layout_mode = 2
+text = "Play"
+
+[node name="ChangeScreenButton" type="Button" parent="VBoxContainer" unique_id=1091854596]
+layout_mode = 2
+text = "BUG"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1316613771]
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ChangeScreenButton" to="." method="_on_change_screen_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -6,13 +6,14 @@
 [ext_resource type="AudioStream" uid="uid://j0bt5y1bicev" path="res://assets/Ball_Touch.sfxr" id="3_4j5ol"]
 [ext_resource type="Script" uid="uid://cmpcm2dn6avaq" path="res://script/bot.gd" id="3_wp4xf"]
 [ext_resource type="Theme" uid="uid://ckpkpdi55dcha" path="res://assets/new_theme.tres" id="5_0ha60"]
-[ext_resource type="Texture2D" uid="uid://xevxfmedlua2" path="res://assets/Life_Bar.png" id="7_k65ib"]
 [ext_resource type="AudioStream" uid="uid://yd2xadcaf4l5" path="res://assets/Fail_Sound.sfxr" id="7_p1hux"]
 [ext_resource type="PackedScene" uid="uid://h35rlpgfnuki" path="res://scene/death_screen.tscn" id="7_wscrc"]
 [ext_resource type="AudioStream" uid="uid://ewabkrgg2e33" path="res://assets/Point_Sound.sfxr" id="8_of57s"]
 [ext_resource type="PackedScene" uid="uid://cicrf2avvsk65" path="res://scene/powe_up_screen.tscn" id="9_mswub"]
 [ext_resource type="AudioStream" uid="uid://bxrf202qt7smn" path="res://assets/countdown_number.mp3" id="9_tqoya"]
+[ext_resource type="Script" uid="uid://cw6cg8qlslskm" path="res://script/experience.gd" id="10_hybxs"]
 [ext_resource type="AudioStream" uid="uid://dxjphdse2pian" path="res://assets/countdown_final.mp3" id="10_k65ib"]
+[ext_resource type="Script" uid="uid://cutjum20yxaya" path="res://script/life.gd" id="10_v2gmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yc80"]
 
@@ -25,8 +26,27 @@ size = Vector2(22, 60)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i241j"]
 size = Vector2(78, 670)
 
+[sub_resource type="Theme" id="Theme_v2gmf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hybxs"]
+bg_color = Color(0.2, 0.2, 0.2, 0.8509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2gmf"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcbur"]
+bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.8039216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smf0o"]
+bg_color = Color(0, 1, 0, 1)
+
 [node name="Main" type="Node2D" unique_id=973019077]
 script = ExtResource("1_brvut")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1270494570]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
 
 [node name="Ball" type="CharacterBody2D" parent="." unique_id=620766520]
 position = Vector2(558, 311)
@@ -130,26 +150,6 @@ shape = SubResource("RectangleShape2D_i241j")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1250576657]
 
-[node name="ScoreLabel" type="RichTextLabel" parent="HUD" unique_id=843845830]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -87.0
-offset_top = 9.0
-offset_right = 87.0
-offset_bottom = 49.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("5_0ha60")
-bbcode_enabled = true
-text = "BUG
-"
-fit_content = true
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="CountdownLabel" type="RichTextLabel" parent="HUD" unique_id=436190341]
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,12 +177,33 @@ vertical_alignment = 1
 
 [node name="Death_Screen" parent="HUD" unique_id=1223509404 instance=ExtResource("7_wscrc")]
 
-[node name="Sprite2D" type="Sprite2D" parent="HUD" unique_id=1905813859]
-position = Vector2(111, 21)
-texture = ExtResource("7_k65ib")
-hframes = 11
-
 [node name="PoweUpScreen" parent="HUD" unique_id=1197140233 instance=ExtResource("9_mswub")]
+
+[node name="experience" type="ProgressBar" parent="HUD" unique_id=564248970]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 11.0
+offset_right = 114.0
+offset_bottom = 38.0
+grow_horizontal = 2
+theme = SubResource("Theme_v2gmf")
+theme_override_styles/background = SubResource("StyleBoxFlat_hybxs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_v2gmf")
+step = 1.0
+show_percentage = false
+script = ExtResource("10_hybxs")
+
+[node name="Life" type="ProgressBar" parent="HUD" unique_id=250252886]
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 266.0
+offset_bottom = 37.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jcbur")
+theme_override_styles/fill = SubResource("StyleBoxFlat_smf0o")
+show_percentage = false
+script = ExtResource("10_v2gmf")
 
 [node name="FailSound" type="AudioStreamPlayer2D" parent="." unique_id=400957308]
 stream = ExtResource("7_p1hux")
@@ -204,6 +225,8 @@ stream = ExtResource("10_k65ib")
 [connection signal="pointed" from="." to="Ball" method="_on_main_pointed"]
 [connection signal="body_entered" from="GoalLeft" to="." method="_on_goal_left_body_entered"]
 [connection signal="body_entered" from="GoalRight" to="." method="_on_goal_right_body_entered"]
+[connection signal="ball_speed_up" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_ball_speed_up"]
+[connection signal="chosed" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_chosed"]
 [connection signal="chosed" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_chosed"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_size_up"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_size_up"]
