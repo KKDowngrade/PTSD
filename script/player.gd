@@ -63,3 +63,15 @@ func _on_pause_menu_despaused() -> void:
 
 func _on_powe_up_screen_size_up_50() -> void:
 	grow_up50()
+
+
+func _on_powe_up_screen_racket_speed_up_50() -> void:
+	speed = speed * 1.5
+
+
+func bounce_feedback() -> void:
+	var tween: Tween = create_tween()
+	tween.set_trans(Tween.TRANS_BOUNCE)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(color_rect, "offset_transform_scale", Vector2.ONE, 0.3).from(Vector2(1.2, 2.0))
+	

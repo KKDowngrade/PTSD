@@ -45,6 +45,37 @@ bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.8039216)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smf0o"]
 bg_color = Color(0, 1, 0, 1)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0yc80"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 324, 0)
+emission_shape = 3
+emission_box_extents = Vector3(64, 324, 1)
+initial_velocity_min = 300.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 98, 0)
+scale_min = 10.0
+scale_max = 20.0
+color = Color(1, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_jcbur"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wkpy8"]
+gradient = SubResource("Gradient_jcbur")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_smf0o"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 324, 0)
+emission_shape = 3
+emission_box_extents = Vector3(64, 324, 1)
+direction = Vector3(-1, 0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 98, 0)
+scale_min = 10.0
+scale_max = 20.0
+color_ramp = SubResource("GradientTexture1D_wkpy8")
+
 [node name="Main" type="Node2D" unique_id=973019077]
 script = ExtResource("1_brvut")
 
@@ -72,6 +103,7 @@ offset_right = 10.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1206996272]
 shape = SubResource("RectangleShape2D_0yc80")
@@ -109,6 +141,7 @@ offset_right = 11.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Racket" unique_id=1439667360]
 position = Vector2(0, -22)
@@ -142,6 +175,7 @@ offset_right = 10.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bot" unique_id=2053685146]
 position = Vector2(-1, -14)
@@ -238,6 +272,12 @@ vertical_alignment = 1
 
 [node name="PauseMenu" parent="HUD" unique_id=264224341 instance=ExtResource("12_jcbur")]
 
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD" unique_id=1699055382]
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+fit_content = true
+
 [node name="FailSound" type="AudioStreamPlayer2D" parent="." unique_id=400957308]
 stream = ExtResource("7_p1hux")
 
@@ -249,6 +289,24 @@ stream = ExtResource("15_jcbur")
 
 [node name="CountdownFinal" type="AudioStreamPlayer2D" parent="." unique_id=2003131060]
 stream = ExtResource("16_smf0o")
+
+[node name="ScoreParticlesLeft" type="GPUParticles2D" parent="." unique_id=351852247]
+unique_name_in_owner = true
+emitting = false
+amount = 32
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_0yc80")
+
+[node name="ScoreParticleRight" type="GPUParticles2D" parent="." unique_id=1836889089]
+unique_name_in_owner = true
+position = Vector2(1152, 0)
+emitting = false
+amount = 32
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_smf0o")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1027473822]
+anchor_mode = 0
 
 [connection signal="game_over" from="." to="Ball" method="_on_main_game_over"]
 [connection signal="game_over" from="." to="Racket" method="_on_main_game_over"]
@@ -268,6 +326,7 @@ stream = ExtResource("16_smf0o")
 [connection signal="chosed" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_chosed"]
 [connection signal="full_life" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_full_life"]
 [connection signal="racket_speed_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_racket_speed_up"]
+[connection signal="racket_speed_up50" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_racket_speed_up_50"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_size_up"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_size_up"]
 [connection signal="size_up50" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_size_up_50"]

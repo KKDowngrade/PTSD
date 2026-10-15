@@ -1,4 +1,6 @@
 extends Control
+
+
 signal size_up
 signal chosed
 signal ball_speed_up
@@ -6,13 +8,20 @@ signal racket_speed_up
 signal super_ball
 signal full_life
 signal size_up50
+signal racket_speed_up50
+
+
+
 var racket_size = 100
 var racket_speed = 100
 var bounce_speed = 100
+
+
 @onready var racket_sizeT: RichTextLabel = $PanelContainer2/VBoxContainer/RacketSize
 @onready var racket_speedT: RichTextLabel = $PanelContainer2/VBoxContainer/RacketSpeed
 @onready var bounce_speedT: RichTextLabel = $PanelContainer2/VBoxContainer/BounceSpeeed
 @export var option_buttons: Array[Button] = []
+
 
 func _ready() -> void:
 	hide()
@@ -70,3 +79,11 @@ func _on_size_up_50_pressed() -> void:
 	update_active()
 	hide()
 	chosed.emit()
+
+
+func _on_speed_up_50_pressed() -> void:
+	racket_speed_up50.emit()
+	chosed.emit()
+	racket_speed += 50
+	update_active()
+	hide()
