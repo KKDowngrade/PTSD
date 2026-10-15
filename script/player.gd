@@ -32,6 +32,9 @@ func att_size():
 func grow_up():
 	height_multiplier += 0.1
 	att_size()
+func grow_up50():
+	height_multiplier += 0.5
+	att_size()
 
 func _on_main_game_started() -> void:
 	is_game_started = true
@@ -56,3 +59,7 @@ func _on_main_paused() -> void:
 
 func _on_pause_menu_despaused() -> void:
 	is_game_paused = false
+
+
+func _on_powe_up_screen_size_up_50() -> void:
+	grow_up50()

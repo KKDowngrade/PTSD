@@ -66,7 +66,7 @@ func _on_goal_right_body_entered(body: Node2D) -> void:
 
 		point_sound.play()
 		pointed.emit()
-		powe_up_screen.show()
+		powe_up_screen.open_choices()
 		level += 1
 		level_up.emit()
 		update_level()

@@ -270,6 +270,7 @@ stream = ExtResource("16_smf0o")
 [connection signal="racket_speed_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_racket_speed_up"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_size_up"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_size_up"]
+[connection signal="size_up50" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_size_up_50"]
 [connection signal="super_ball" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_super_ball"]
 [connection signal="despaused" from="HUD/PauseMenu" to="Ball" method="_on_pause_menu_despaused"]
 [connection signal="despaused" from="HUD/PauseMenu" to="Racket" method="_on_pause_menu_despaused"]
