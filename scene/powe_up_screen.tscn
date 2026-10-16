@@ -273,7 +273,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_mswub")
 script = ExtResource("1_4jk1w")
-option_buttons = [NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SpeedUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SpeedUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SpeedUp100"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed100"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUp100")]
+option_buttons = [NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton2"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton3"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton2"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton3"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton2"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton3"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton2"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton3"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUp502"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SpeedUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SpeedUp502"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed502"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SpeedUp100"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed100"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUp100")]
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=246396089]
 layout_mode = 1
@@ -313,7 +313,35 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_mbnxc")
 text = "+10% racket
 size"
 
+[node name="SizeUpButton2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=775193314]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_j0xqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mbnxc")
+text = "+10% racket
+size"
+
+[node name="SizeUpButton3" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=710023912]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_j0xqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mbnxc")
+text = "+10% racket
+size"
+
 [node name="RacketSpeedUpButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=452625315]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqj1d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_214iv")
+text = "+10% racket
+speed"
+
+[node name="RacketSpeedUpButton2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=542675757]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqj1d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_214iv")
+text = "+10% racket
+speed"
+
+[node name="RacketSpeedUpButton3" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=308718957]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_gqj1d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_214iv")
@@ -327,13 +355,46 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_lj4lh")
 text = "+10% ball
 bounce speed"
 
+[node name="SuperBallButton2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=456768127]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pfqaw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lj4lh")
+text = "+10% ball
+bounce speed"
+
+[node name="SuperBallButton3" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=758338772]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pfqaw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lj4lh")
+text = "+10% ball
+bounce speed"
+
 [node name="FullLifeButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1687168965]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_onb6g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mdd1b")
 text = "Get Full Life"
 
+[node name="FullLifeButton2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=102288510]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_onb6g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdd1b")
+text = "Get Full Life"
+
+[node name="FullLifeButton3" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=96114463]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_onb6g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdd1b")
+text = "Get Full Life"
+
 [node name="SizeUp50" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=873254369]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_jcbur")
+theme_override_styles/hover = SubResource("StyleBoxFlat_smf0o")
+text = "+50% racket
+size"
+
+[node name="SizeUp502" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=780125586]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_jcbur")
 theme_override_styles/hover = SubResource("StyleBoxFlat_smf0o")
@@ -347,7 +408,21 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_0vlqb")
 text = "50% racket
 speed"
 
+[node name="SpeedUp502" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=132920681]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tv8i1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0vlqb")
+text = "50% racket
+speed"
+
 [node name="BounceSpeed50" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1049911264]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_gjnwh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fdqew")
+text = "+50% ball
+bounce speed"
+
+[node name="BounceSpeed502" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1309871156]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_gjnwh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fdqew")
@@ -424,12 +499,23 @@ autowrap_mode = 0
 stream = ExtResource("3_bmjak")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton" to="." method="_on_size_up_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton2" to="." method="_on_size_up_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton3" to="." method="_on_size_up_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton" to="." method="_on_racket_speed_up_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton2" to="." method="_on_racket_speed_up_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton3" to="." method="_on_racket_speed_up_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton" to="." method="_on_super_ball_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton2" to="." method="_on_super_ball_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton3" to="." method="_on_super_ball_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton" to="." method="_on_full_life_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton2" to="." method="_on_full_life_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton3" to="." method="_on_full_life_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUp50" to="." method="_on_size_up_50_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUp502" to="." method="_on_size_up_50_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SpeedUp50" to="." method="_on_speed_up_50_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SpeedUp502" to="." method="_on_speed_up_50_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed50" to="." method="_on_bounce_speed_50_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed502" to="." method="_on_bounce_speed_50_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUp100" to="." method="_on_size_up_100_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SpeedUp100" to="." method="_on_speed_up_100_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed100" to="." method="_on_bounce_speed_100_pressed"]
