@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var ball_touch: AudioStreamPlayer2D = $BallTouch
 @onready var color_rect: ColorRect = $ColorRect
+@onready var fire_particles: GPUParticles2D = $FireParticles
 
 var speed = 400
 var speed_multiplier = 1
@@ -25,11 +26,12 @@ func _physics_process(delta: float) -> void:
 
 
 func reset() -> void:
+	fire_particles.emitting = false
 	global_position = Vector2(558, 311)
 	speed = 0
 	await get_tree().create_timer(0.6).timeout
 	speed = actual_speed
-	print("reset")
+	
 
 func bounce_feedback() -> void:
 	var tween: Tween = create_tween()
@@ -55,6 +57,7 @@ func _on_main_game_over() -> void:
 
 func _on_main_pointed() -> void:
 	global_position = Vector2(558, 311)
+	fire_particles.emitting = false
 	speed = 0
 
 
@@ -66,17 +69,15 @@ func att_speed():
 
 
 func _on_main_level_up() -> void:
-	speed_multiplier += 0.1
-	att_speed()
+	actual_speed = actual_speed * 1.1
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 	if super_ball == true:
+		fire_particles.amount = 64 * bounce_multiplier
+		fire_particles.emitting = true
 		speed = actual_speed * bounce_multiplier
-
-
-
 
 
 func _on_powe_up_screen_super_ball() -> void:
@@ -90,3 +91,8 @@ func _on_main_paused() -> void:
 
 func _on_pause_menu_despaused() -> void:
 	speed = actual_speed
+
+
+func _on_powe_up_screen_bounce_speed_up_50() -> void:
+	bounce_multiplier += 0.5
+	super_ball = true

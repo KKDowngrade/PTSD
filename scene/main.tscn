@@ -16,6 +16,23 @@
 [ext_resource type="PackedScene" uid="uid://cluylp23isb3o" path="res://scene/pause_menu.tscn" id="12_jcbur"]
 [ext_resource type="AudioStream" uid="uid://d2718437u5uan" path="res://assets/Countdown_Number.sfxr" id="15_jcbur"]
 [ext_resource type="AudioStream" uid="uid://dkau5nbvwqp7u" path="res://assets/Countdown_Final.sfxr" id="16_smf0o"]
+[ext_resource type="AudioStream" uid="uid://bm8lc7efgdehk" path="res://assets/Level_Up_Sound.sfxr" id="17_smf0o"]
+
+[sub_resource type="Gradient" id="Gradient_smf0o"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0.023529412, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_arqo0"]
+gradient = SubResource("Gradient_smf0o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rxva8"]
+particle_flag_disable_z = true
+angle_min = -132.9
+angle_max = 686.80005
+direction = Vector3(-1, 0, 0)
+initial_velocity_min = 153.68
+initial_velocity_max = 338.3
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_arqo0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yc80"]
 
@@ -90,6 +107,11 @@ collision_layer = 8
 collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_itxqv")
+
+[node name="FireParticles" type="GPUParticles2D" parent="Ball" unique_id=130169417]
+emitting = false
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_rxva8")
 
 [node name="ColorRect" type="ColorRect" parent="Ball" unique_id=1454420961]
 anchors_preset = 8
@@ -272,11 +294,40 @@ vertical_alignment = 1
 
 [node name="PauseMenu" parent="HUD" unique_id=264224341 instance=ExtResource("12_jcbur")]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HUD" unique_id=1699055382]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="LevelUpText" type="RichTextLabel" parent="HUD" unique_id=1699055382]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -570.0
+offset_top = -34.5
+offset_right = 570.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("11_v2gmf")
+theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
+text = "[wave][rainbow]Level Up!"
 fit_content = true
+horizontal_alignment = 1
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="HUD" unique_id=289223970]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -24.0
+offset_right = -186.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+action_up = &"p1_move_up"
+action_down = &"p1_move_down"
+visibility_mode = 1
 
 [node name="FailSound" type="AudioStreamPlayer2D" parent="." unique_id=400957308]
 stream = ExtResource("7_p1hux")
@@ -308,6 +359,9 @@ process_material = SubResource("ParticleProcessMaterial_smf0o")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1027473822]
 anchor_mode = 0
 
+[node name="LevelUpSound" type="AudioStreamPlayer2D" parent="." unique_id=1472142186]
+stream = ExtResource("17_smf0o")
+
 [connection signal="game_over" from="." to="Ball" method="_on_main_game_over"]
 [connection signal="game_over" from="." to="Racket" method="_on_main_game_over"]
 [connection signal="game_started" from="." to="Ball" method="_on_main_game_started"]
@@ -322,13 +376,16 @@ anchor_mode = 0
 [connection signal="body_entered" from="GoalLeft" to="." method="_on_goal_left_body_entered"]
 [connection signal="body_entered" from="GoalRight" to="." method="_on_goal_right_body_entered"]
 [connection signal="ball_speed_up" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_ball_speed_up"]
+[connection signal="bounce_speed_up50" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_bounce_speed_up_50"]
 [connection signal="chosed" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_chosed"]
 [connection signal="chosed" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_chosed"]
 [connection signal="full_life" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_full_life"]
 [connection signal="racket_speed_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_racket_speed_up"]
+[connection signal="racket_speed_up100" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_racket_speed_up_100"]
 [connection signal="racket_speed_up50" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_racket_speed_up_50"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="." method="_on_powe_up_screen_size_up"]
 [connection signal="size_up" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_size_up"]
+[connection signal="size_up100" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_size_up_100"]
 [connection signal="size_up50" from="HUD/PoweUpScreen" to="Racket" method="_on_powe_up_screen_size_up_50"]
 [connection signal="super_ball" from="HUD/PoweUpScreen" to="Ball" method="_on_powe_up_screen_super_ball"]
 [connection signal="despaused" from="HUD/PauseMenu" to="Ball" method="_on_pause_menu_despaused"]

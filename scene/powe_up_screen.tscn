@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cibmrolcrlqha" path="res://script/powe_up_screen.gd" id="1_4jk1w"]
 [ext_resource type="FontFile" uid="uid://bfvmt4akmv3hv" path="res://assets/PressStart2P-Regular.ttf" id="1_hjy4r"]
+[ext_resource type="AudioStream" uid="uid://di3v2kxqpcokj" path="res://assets/Click_Sound.sfxr" id="3_bmjak"]
 
 [sub_resource type="Theme" id="Theme_mswub"]
 default_font = ExtResource("1_hjy4r")
@@ -23,6 +24,220 @@ content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0xqg"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.59607846, 0.29411766, 0.12156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbnxc"]
+bg_color = Color(0.59607846, 0.29411766, 0.12156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqj1d"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.59607846, 0.29411766, 0.12156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_214iv"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.59607846, 0.29411766, 0.12156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfqaw"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.59607846, 0.29411766, 0.12156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lj4lh"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.59607846, 0.29411766, 0.12156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onb6g"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.59607846, 0.29411766, 0.12156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdd1b"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.59607846, 0.29411766, 0.12156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcbur"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smf0o"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tv8i1"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vlqb"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjnwh"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdqew"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj1cb"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.9019608, 0.8039216, 0.41960785, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdt84"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.9019608, 0.8039216, 0.41960785, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dayp8"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.9019608, 0.8039216, 0.41960785, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8p2x"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.9019608, 0.8039216, 0.41960785, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jec4t"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.9019608, 0.8039216, 0.41960785, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ag3dv"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.9019608, 0.8039216, 0.41960785, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjy4r"]
 content_margin_left = 10.0
@@ -58,7 +273,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_mswub")
 script = ExtResource("1_4jk1w")
-option_buttons = [NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SpeedUp50")]
+option_buttons = [NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SpeedUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SpeedUp50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed50"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SpeedUp100"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed100"), NodePath("PanelContainer/VBoxContainer/HBoxContainer/SizeUp100")]
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=246396089]
 layout_mode = 1
@@ -93,32 +308,72 @@ layout_mode = 2
 
 [node name="SizeUpButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=426879897]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_j0xqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mbnxc")
 text = "+10% racket
 size"
 
 [node name="RacketSpeedUpButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=452625315]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqj1d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_214iv")
 text = "+10% racket
 speed"
 
 [node name="SuperBallButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=2024311866]
 layout_mode = 2
-text = "+10 ball
+theme_override_styles/normal = SubResource("StyleBoxFlat_pfqaw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lj4lh")
+text = "+10% ball
 bounce speed"
 
 [node name="FullLifeButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1687168965]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_onb6g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdd1b")
 text = "Get Full Life"
 
 [node name="SizeUp50" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=873254369]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_jcbur")
+theme_override_styles/hover = SubResource("StyleBoxFlat_smf0o")
 text = "+50% racket
 size"
 
 [node name="SpeedUp50" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1945726908]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tv8i1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0vlqb")
 text = "50% racket
 speed"
+
+[node name="BounceSpeed50" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1049911264]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_gjnwh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fdqew")
+text = "+50% ball
+bounce speed"
+
+[node name="SizeUp100" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1201964777]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_rj1cb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cdt84")
+text = "+100% racket
+size"
+
+[node name="SpeedUp100" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1809789483]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dayp8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w8p2x")
+text = "100% racket
+speed"
+
+[node name="BounceSpeed100" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=900949981]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_jec4t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ag3dv")
+text = "+100% ball
+bounce speed"
 
 [node name="PanelContainer2" type="PanelContainer" parent="." unique_id=1032041397]
 layout_mode = 0
@@ -165,9 +420,16 @@ text = "bug"
 fit_content = true
 autowrap_mode = 0
 
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="." unique_id=1188328496]
+stream = ExtResource("3_bmjak")
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUpButton" to="." method="_on_size_up_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/RacketSpeedUpButton" to="." method="_on_racket_speed_up_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SuperBallButton" to="." method="_on_super_ball_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/FullLifeButton" to="." method="_on_full_life_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUp50" to="." method="_on_size_up_50_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SpeedUp50" to="." method="_on_speed_up_50_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed50" to="." method="_on_bounce_speed_50_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SizeUp100" to="." method="_on_size_up_100_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/SpeedUp100" to="." method="_on_speed_up_100_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BounceSpeed100" to="." method="_on_bounce_speed_100_pressed"]

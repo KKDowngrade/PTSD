@@ -9,6 +9,10 @@ signal super_ball
 signal full_life
 signal size_up50
 signal racket_speed_up50
+signal bounce_speed_up50
+signal size_up100
+signal racket_speed_up100
+signal bounce_speed_up100
 
 
 
@@ -21,6 +25,7 @@ var bounce_speed = 100
 @onready var racket_speedT: RichTextLabel = $PanelContainer2/VBoxContainer/RacketSpeed
 @onready var bounce_speedT: RichTextLabel = $PanelContainer2/VBoxContainer/BounceSpeeed
 @export var option_buttons: Array[Button] = []
+@onready var click_sound: AudioStreamPlayer2D = $ClickSound
 
 
 func _ready() -> void:
@@ -40,6 +45,7 @@ func _on_size_up_button_pressed() -> void:
 	update_active()
 	hide()
 	chosed.emit()
+	click_sound.play()
 
 
 func _on_racket_speed_up_button_pressed() -> void:
@@ -48,6 +54,7 @@ func _on_racket_speed_up_button_pressed() -> void:
 	racket_speed += 10
 	update_active()
 	hide()
+	click_sound.play()
 
 
 func _on_super_ball_button_pressed() -> void:
@@ -56,12 +63,16 @@ func _on_super_ball_button_pressed() -> void:
 	bounce_speed += 10
 	update_active()
 	hide()
+	click_sound.play()
 
 
 func _on_full_life_button_pressed() -> void:
 	full_life.emit()
 	chosed.emit()
 	hide()
+	click_sound.play()
+	
+	
 func open_choices():
 	var shuffled_buttons = option_buttons.duplicate()
 	shuffled_buttons.shuffle()
@@ -79,6 +90,7 @@ func _on_size_up_50_pressed() -> void:
 	update_active()
 	hide()
 	chosed.emit()
+	click_sound.play()
 
 
 func _on_speed_up_50_pressed() -> void:
@@ -87,3 +99,40 @@ func _on_speed_up_50_pressed() -> void:
 	racket_speed += 50
 	update_active()
 	hide()
+	click_sound.play()
+
+
+func _on_bounce_speed_50_pressed() -> void:
+	bounce_speed_up50.emit()
+	chosed.emit()
+	bounce_speed += 50
+	update_active()
+	hide()
+	click_sound.play()
+
+
+func _on_size_up_100_pressed() -> void:
+	size_up100.emit()
+	racket_size += 100
+	update_active()
+	hide()
+	chosed.emit()
+	click_sound.play()
+
+
+func _on_speed_up_100_pressed() -> void:
+	racket_speed_up100.emit()
+	chosed.emit()
+	racket_speed += 100
+	update_active()
+	hide()
+	click_sound.play()
+
+
+func _on_bounce_speed_100_pressed() -> void:
+	bounce_speed_up100.emit()
+	chosed.emit()
+	bounce_speed += 100
+	update_active()
+	hide()
+	click_sound.play()

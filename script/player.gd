@@ -29,12 +29,22 @@ func _physics_process(delta: float) -> void:
 func att_size():
 	color_rect.size.y = normal_height * height_multiplier
 	collision_shape_2d.shape.size.y = normal_height * height_multiplier
+	
+	
 func grow_up():
 	height_multiplier += 0.1
 	att_size()
+	
+	
 func grow_up50():
 	height_multiplier += 0.5
 	att_size()
+
+
+func grow_up100():
+	height_multiplier += 1
+	att_size()
+
 
 func _on_main_game_started() -> void:
 	is_game_started = true
@@ -50,7 +60,7 @@ func _on_powe_up_screen_size_up() -> void:
 
 func _on_powe_up_screen_racket_speed_up() -> void:
 	speed = speed * 1.1
-	print(speed)
+
 
 
 func _on_main_paused() -> void:
@@ -75,3 +85,11 @@ func bounce_feedback() -> void:
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(color_rect, "offset_transform_scale", Vector2.ONE, 0.3).from(Vector2(1.2, 2.0))
 	
+
+
+func _on_powe_up_screen_size_up_100() -> void:
+	grow_up100()
+
+
+func _on_powe_up_screen_racket_speed_up_100() -> void:
+	speed = speed * 2

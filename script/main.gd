@@ -22,6 +22,8 @@ var is_game_started = false
 @onready var score_particles_left: GPUParticles2D = %ScoreParticlesLeft
 @onready var score_particle_right: GPUParticles2D = %ScoreParticleRight
 @onready var camera: Camera2D = $Camera2D
+@onready var level_up_text: RichTextLabel = $HUD/LevelUpText
+@onready var level_up_sound: AudioStreamPlayer2D = $LevelUpSound
 
 signal game_waited
 signal game_started
@@ -31,6 +33,7 @@ signal level_up
 signal paused
 
 func _ready() -> void:
+	level_up_text.hide()
 	update_level()
 	game_waited.emit()
 	countdown_label.text = str("[color=red]3")
@@ -69,14 +72,18 @@ func _on_goal_right_body_entered(body: Node2D) -> void:
 	
 	if experience >= 100:
 
-		point_sound.play()
+		level_up_sound.play()
 		pointed.emit()
+		level_up_text.show()
+		await get_tree().create_timer(1).timeout
+		level_up_text.hide()
 		powe_up_screen.open_choices()
 		level += 1
 		level_up.emit()
 		update_level()
 		score_particle_right.emitting = true
 		goal_feedback(40)
+
 
 	else:
 		score += 1
